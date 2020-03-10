@@ -1,7 +1,7 @@
 {
-  "name": "ngx-simple-data-table",
+  "name": "general-data-table",
   "version": "1.0.11",
-  "description": "Simple Data Table for Angular 4+",
+  "description": "Data Table for Angular 4+",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -37,11 +37,11 @@
     "build:umd": "webpack --config webpack-umd.config.ts",
     "build:umd:watch": "npm run build:umd -- --watch",
     "build:watch": "concurrently --raw \"npm run build:umd:watch\" \"npm run build:esm:watch\"",
-    "ci": "npm run test && npm run build && npm run docs",
+    "ci": "npm run build && npm run docs",
     "clean:all": "npm run clean:tmp && rimraf node_modules",
     "clean:tmp": "rimraf coverage dist tmp docs",
     "codecov": "cat coverage/lcov.info | codecov",
-    "docs": "compodoc -p tsconfig.json -d docs --disableCoverage --disablePrivateOrInternalSupport",
+    "docs": "compodoc -p tsconfig.json -d docs --disableCoverage --disablePrivate --disableInternal",
     "explorer": "source-map-explorer ./dist/index.umd.js",
     "gh-pages": "rimraf docs && npm run docs && gh-pages -d docs",
     "lint": "npm run tslint 'src/**/*.ts'",
@@ -56,7 +56,8 @@
     "tslint": "tslint"
   },
   "dependencies": {
-    "natives": "^1.1.6"
+    "natives": "^1.1.6",
+    "tslint": "^5.2.0"
   },
   "peerDependencies": {
     "@angular/common": "^4.0.0",

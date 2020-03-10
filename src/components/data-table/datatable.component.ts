@@ -448,7 +448,7 @@ export class DataTable implements DataTableParams, OnInit {
     startSearch(e: any) {
         this.showPopup = null;
         clearTimeout(this.popupTimeout);
-        if (!this.autoSearch && e.target.value) {
+        if (!this.autoSearch && !this.searchCompleted) {
             this.offset = 0;
             this.searchCompleted = true;
         }
