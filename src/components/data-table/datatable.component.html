@@ -45,7 +45,7 @@
                             <div *ngIf="showPopup == k" class="pop-msg" >
                                 <span>Press Enter to Search</span>
                             </div>
-                            <input id="sinp{{k}}" (keyup.enter)="startSearch($event,k)" (focusout)="onFocusout($event)" (input)="filterColumn($event, c,k)" type="text" class="filter" [placeholder]="c.header" *ngIf="c.filter">
+                            <input id="sinp{{k}}" (keyup.enter)="startSearch($event)" (focusout)="onFocusout($event)" (input)="filterColumn($event, c,k)" type="text" class="filter" [placeholder]="c.header" *ngIf="c.filter">
                         </td>
                     </ng-container>
                 </tr>

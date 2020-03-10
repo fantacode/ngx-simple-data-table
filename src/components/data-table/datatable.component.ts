@@ -21,6 +21,7 @@ export class DataTable implements DataTableParams, OnInit {
     showPopup: number = null;
     keyTrigger: (e: any) => void;
     popupTimeout: any;
+    searchCompleted: boolean;
     @Input() get items() {
         return this._items;
     }
@@ -401,6 +402,7 @@ export class DataTable implements DataTableParams, OnInit {
         if(!this.autoSearch) {
             clearTimeout(this.popupTimeout);
             this.showPopup = null;
+            this.searchCompleted = false;
             this.popupTimeout = setTimeout(() => {
                 this.showPopup = id;
             },2000);
@@ -443,16 +445,19 @@ export class DataTable implements DataTableParams, OnInit {
         }
     }
 
-    startSearch(e: any, k : number) {
+    startSearch(e: any) {
         this.showPopup = null;
         clearTimeout(this.popupTimeout);
         if (!this.autoSearch && e.target.value) {
             this.offset = 0;
+            this.searchCompleted = true;
         }
     }
 
-    onFocusout(k: any) {
-        this.startSearch();
+    onFocusout(e:any) {
+        if(!this.searchCompleted) {
+            this.startSearch(e);
+        }
         // this.keyTrigger = function (e) {
         //     if(e.keyCode == 13) {
         //         this.startSearch();
