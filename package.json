@@ -1,5 +1,5 @@
 {
-  "name": "ngx-simple-table",
+  "name": "ngx-simple-data-table",
   "version": "1.0.11",
   "description": "Simple Data Table for Angular 4+",
   "main": "./dist/index.umd.js",
